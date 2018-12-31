@@ -15,6 +15,7 @@
 <title>header</title>
 </head>
 <body>
+<div class="container-fluid">
 <div class="navbar">
 <nav class="navbar navbar-default" id="navcolor">
 <div  class="navbar-header">
@@ -29,24 +30,26 @@
 </div>
 <div class="collapse navbar-collapse" id="collapse-example">
 <ul class="nav navbar-nav" id="links">
-<li><a href="<c:url value='/'></c:url>"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+<li><a href="<c:url value='/'></c:url>">Home</a></li>
 <li><a href="<c:url value='/all/getallproducts'></c:url>">Browse all products</a></li>
 <li><a href="<c:url value='/admin/getproductform'></c:url>">Add Product</a></li>
+
 <li class="dropdown">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Select By Cateogory
 			<span class="caret"></span></a>
 			<ul class="dropdown-menu">
 			<li><a href="<c:url value='/all/getallproducts/electronics'></c:url>">ELectronics</a></li>
 			<li><a href="<c:url value='/all/getallproducts/fashion'></c:url>">Fashion</a></li>
-			<li><a href="<c:url value='/all/getallproducts/category=books'></c:url>">Books</a></li>
+			<li>Books</a></li>
 			</ul>
 			</li>
 <li><a href="<c:url value='/signup'></c:url>">Sign Up</a></li>
-<li><a href="<c:url value='/signin'></c:url>"><span class="glyphicon glyphicon-log-in"></span>Sign In</a></li>
+<li><a href="<c:url value='/signin'></c:url>">Sign In</a></li>
 <li><a href="<c:url value='/aboutus'></c:url>">About Us</a></li>
 </ul>
 </div>
 </nav>
+</div>
 </div>
 </body>
 </html>
