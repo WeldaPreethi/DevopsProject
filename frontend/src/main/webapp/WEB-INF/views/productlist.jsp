@@ -35,16 +35,14 @@ p=product object from the list
 				<c:forEach items="${products }" var="p">
 					<tr>
 						<td>${p.id }</td>
-
 						<td>${p.productname }</td>
-
+						<td>${p.description }</td>
 						<td>${p.price }</td>
 						<td>${p.quantity }</td>
-						<td>${p.description }</td>
 						<td><a
 							href="<c:url value='/all/getproduct?id=${p.id }'></c:url>"><span
 								class="glyphicon glyphicon-info-sign"></span></a> <a
-							href="<c:url value='/admin/deleteproduct$?id=${p.id}'></c:url>"><span
+							href="<c:url value='/admin/deleteproduct/id=${p.id}'></c:url>"><span
 								class="glyphicon glyphicon-trash"></span></a> <a
 							href="<c:url value='/admin/getupdateform?id=${p.id }'></c:url>"><span
 								class="glyphicon glyphicon-pencil"></span></a></td>

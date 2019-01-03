@@ -3,10 +3,14 @@ package com.project.controllers;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -38,20 +42,12 @@ public class ProductController {
 		return "productform";
 	}
 	@RequestMapping(value="/admin/addproduct")
-	public String addproduct(HttpServletRequest request) {
-		String productname=request.getParameter("productname");
-		String description=request.getParameter("description");
-		int quantity=Integer.parseInt(request.getParameter("quantity"));
-		double price=Double.parseDouble(request.getParameter("price"));
-		Product p= new Product();
-		p.setProductname(productname);
-		p.setDescription(description);
-		p.setPrice(price);
-		p.setQuantity(quantity);
-		//call dao
-		productDao.addProduct(p);
-		
-		
+	public String addproduct(@ModelAttribute @Valid Product product,BindingResult result,Model model,HttpServletRequest request) {
+		if(result.hasErrors()) {
+			model.addAttribute("categories",productDao.getAllCategories());
+		return "productform";
+		}
+		productDao.addProduct(product);
 		return "redirect:/all/getallproducts";
 		
 	}
@@ -63,17 +59,23 @@ public class ProductController {
 		
 		
 	}
-	@RequestMapping(value="/admin/deleteproduct")
-	public String deleteProduct(@RequestParam int id,Model model) {
+	@RequestMapping(value="/admin/deleteproduct/id={id}")
+	public String deleteProduct(@PathVariable int id,Model model) {
 		productDao.deleteProduct(id);
 		return "redirect:/all/getallproducts";
 	}
+	
+	
 	@RequestMapping(value="/admin/getupdateform")
 	public String getupdateform(@RequestParam int id,Model model){
 		Product product=productDao.getProduct(id);
 		model.addAttribute("product",product);
-		System.out.println("BEFORE GETTING FORM " +product.getId());
 		return "updateproductform";
 	}
-
-}
+	
+	@RequestMapping (value="/admin/updateproduct")
+    public String updateproduct(@ModelAttribute  Product product) {
+    	productDao.updateProduct(product);
+		return "redirect:/all/getallproducts";
+    }
+	 }

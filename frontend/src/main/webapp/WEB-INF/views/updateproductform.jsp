@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ include file="header.jsp"%>
+    <%@ include file="header.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,23 +8,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-Product
 <div class="container">
-<c:url value="/admin/addproduct" var="url"></c:url>
-<form:form action="${url}" modelAttribute="product" >
+<c:url value="/admin/updateproduct" var="url"></c:url>
+<form:form action="${url}" modelAttribute="product">
 <pre>
+<form:hidden path="id"/>
 Enter Productname : <form:input path="productname"/>
 Enter description : <form:input path="description"/>
 Enter price       : <form:input path="price"/>     
-Enter quantity    : <form:input path="quantity"/>  
-Select Category   : <form:select path="category.categoryId">
-<c:forEach items="${categories }" var="c"><%--model.addAttribute("categories",categories), items refers the model attribute categories --%>
-<form:option value="${c.CategoryId }">${c.CategoryName}</form:option> 
-</c:forEach>
-</form:select>
+Enter quantity    : <form:input path="quantity"/>   
 <input type="submit" value="Add Product">
 </pre>
 </div>
 </form:form>
+
 </body>
 </html>

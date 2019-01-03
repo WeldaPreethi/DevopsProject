@@ -43,7 +43,7 @@
 			<li>Books</a></li>
 			</ul>
 			</li>
-<li><a href="<c:url value='/signup'></c:url>">Sign Up</a></li>
+<li><a href="<c:url value='/all/getregistrationform'></c:url>">Sign Up</a></li>
 <li><a href="<c:url value='/signin'></c:url>">Sign In</a></li>
 <li><a href="<c:url value='/aboutus'></c:url>">About Us</a></li>
 </ul>
