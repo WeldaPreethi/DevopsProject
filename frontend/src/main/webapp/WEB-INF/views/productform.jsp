@@ -1,30 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ include file="header.jsp"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<%@ include file="header.jsp" %>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>ProductForm</title>
 </head>
 <body>
-Product
 <div class="container">
 <c:url value="/admin/addproduct" var="url"></c:url>
-<form:form action="${url}" modelAttribute="product" >
+<form:form action="${url }" modelAttribute="product" enctype="multipart/form-data">
 <pre>
-Enter Productname : <form:input path="productname"/>
-Enter description : <form:input path="description"/>
-Enter price       : <form:input path="price"/>     
-Enter quantity    : <form:input path="quantity"/>  
-Select Category   : <form:select path="category.categoryId">
+Enter Productname : <form:input path="ProductName"/><form:errors path="ProductName" cssStyle="color:red" ></form:errors>
+Enter description : <form:input path="Description"/><form:errors path="Description" cssStyle="color:red" ></form:errors>
+Enter price       : <form:input path="Price"/>     <form:errors path="Price" cssStyle="color:red"></form:errors>
+Enter quantity    : <form:input path="Quantity"/>   <form:errors path="Quantity" cssStyle="color:red"></form:errors>
+Select Category   : <form:select path="category.categoryId">	
 <c:forEach items="${categories }" var="c"><%--model.addAttribute("categories",categories), items refers the model attribute categories --%>
-<form:option value="${c.CategoryId }">${c.CategoryName}</form:option> 
+<form:option value="${c.categoryId }">${c.categoryName}</form:option>
 </c:forEach>
 </form:select>
+Upload image      : <form:input path="image" type="file"/>
 <input type="submit" value="Add Product">
 </pre>
-</div>
 </form:form>
+</div>
 </body>
 </html>

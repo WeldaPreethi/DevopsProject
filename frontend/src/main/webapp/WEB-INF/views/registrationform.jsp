@@ -12,7 +12,6 @@
 <script type="text/javascript">
 function fillShippingAddress(form){
 	if(form.checkbox.checked==true){
-		//Copy all the values from billingaddress and assign values in shippingaddress
 		form["shippingAddress.apartmentnumber"].value=form["billingAddress.apartmentnumber"].value
 		form["shippingAddress.streetname"].value=form["billingAddress.streetname"].value
 		form["shippingAddress.city"].value=form["billingAddress.city"].value
@@ -74,7 +73,7 @@ $(document).ready(function(){
 <div class="container">
 <pre>
 <c:url value="/all/register" var="url"></c:url>
-<form:form action="${url }" method="post" modelAttribute="Customer" id="form">
+<form:form action="${url }" method="post" modelAttribute="customer" id="form">
 CUSTOMER DETAILS
 <table>
 <tr><td>

@@ -1,6 +1,12 @@
 @charset "ISO-8859-1";
-.item{
-	height: 50%;
-	width: 60%;
-	align:center;
+.navbar-default{
+	background-color:#c0c0c0;
+}
+.nav.navbar-nav li a
+{
+	color:#400000;
+}
+.nav.navbar-nav li a:hover
+{
+	background-color: #8080ff;
 }
