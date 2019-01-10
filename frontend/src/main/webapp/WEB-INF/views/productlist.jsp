@@ -8,6 +8,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<script type="text/javascript">
+$(document).ready(function(){
+	var searchCondition='${searchCondition}'
+$('table').DataTable({
+	"lengthMenu":[[2,5,-1],[2,5,"All"]],
+	"oSearch" :{
+		"sSearch":searchCondition
+	}
+})
+
+})
+
+
+</script>
 </head>
 <body>
 	<%--  forEach is for iterating collection of objects
@@ -19,7 +33,7 @@ for(Product p:products){
 p=product object from the list
 --%>
 <div class="container">
-	<table class="table table-bordered">
+	<table class="table table-hover">
 		<thead>
 			<tr>
 			    <th>Product Id</th>
@@ -32,10 +46,10 @@ p=product object from the list
 			</tr>
 		</thead>
 		<tbody>
-		<c:forEach items="${products }" var="p">
+		<c:forEach items="${products}" var="p">
         <tr>
         <td>${p.id }</td>
-        <td><img src="<c:url value="/resources/images/${productAttr.id }.png"></c:url>" height="50px" width="50px"></td>
+        <td><img src="<c:url value='/resources/images/${p.id}.png'></c:url>" height="40px" width="40px"></td>
         <td>${p.productName }</td>
         <td>${p.category.categoryName}</td>
         <td>${p.price }</td>

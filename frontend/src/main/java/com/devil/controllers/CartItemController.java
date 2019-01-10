@@ -116,7 +116,16 @@ public class CartItemController {
 			grandTotal=cartItem.getTotalPrice()+grandTotal;
 		}
 		customerOrder.setGrandTotal(grandTotal);
-		
+		cartItemDao.createCustomerOrder(customerOrder);
+		model.addAttribute("cartItems",cartItems);
+		for(CartItem cartItem:cartItems){
+			Product product=cartItem.getProduct();
+			product.setQuantity(product.getQuantity() - cartItem.getQuantity());
+			productDao.saveOrUpdate(product);
+			cartItemDao.removeCartItem(cartItem.getCartItemId());
+		}
+		session.setAttribute("cartSize", 0);
+		model.addAttribute("customerOrder",customerOrder);
 		return "orderdetails";
 	}
 	

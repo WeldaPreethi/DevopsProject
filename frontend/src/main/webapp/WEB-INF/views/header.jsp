@@ -39,9 +39,10 @@
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Select By Cateogory
 			<span class="caret"></span></a>
 			<ul class="dropdown-menu">
-			<li><a href="<c:url value='/all/getallproducts/electronics'></c:url>">ELectronics</a></li>
-			<li><a href="<c:url value='/all/getallproducts/fashion'></c:url>">Fashion</a></li>
-			<li><a href="<c:url value='/all/getallproducts/books'></c:url>">Books</a></li>
+			<c:forEach var="c" items="${categories }">
+			<li><a href="<c:url value='/all/searchbycategory?searchCondition=${c.categoryName }'></c:url>">${c.categoryName }</a></li>
+			</c:forEach>
+			<li><a href="<c:url value='/all/searchbycategory?searchCondition=All'></c:url>"">All</a></li>
 			</ul>
 			</li>
 <c:if test="${pageContext.request.userPrincipal.name==null }">			
@@ -50,12 +51,13 @@
 </c:if>
 <c:if test="${pageContext.request.userPrincipal.name!=null }">
 <security:authorize access="hasRole('ROLE_USER')">
-<li><a href="<c:url value='/cart/getcartitems'></c:url>"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+<li><a href="<c:url value='/cart/getcartitems'></c:url>"><span class="glyphicon glyphicon-shopping-cart"></span>(${cartSize})</a></li>
 </security:authorize>
 <li><a href="<c:url value='/j_spring_security_logout'></c:url>"><span class="glyphicon glyphicon-log-out"></span>Sign Out</a></li>
 <li><a href="">Welcome ${pageContext.request.userPrincipal.name }</a></li>
 </c:if>
 <li><a href="<c:url value='/aboutus'></c:url>">About Us</a></li>
+
 </ul>
 </div>
 </nav>
