@@ -10,3 +10,9 @@
 {
 	background-color: #8080ff;
 }
+.navbar.navbar_header.img{
+	border-radius: 100px;
+    margin-top: -10px;
+    width: 83px;
+    height: 41px;
+}
