@@ -3,6 +3,10 @@
 <%@ include file="header.jsp"%>
 <%@ page isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+  
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,10 +21,7 @@ $('table').DataTable({
 		"sSearch":searchCondition
 	}
 })
-
 })
-
-
 </script>
 </head>
 <body>
@@ -33,7 +34,7 @@ for(Product p:products){
 p=product object from the list
 --%>
 <div class="container">
-	<table class="table table-hover">
+	<table class="table table-hover" id="table">
 		<thead>
 			<tr>
 			    <th>Product Id</th>

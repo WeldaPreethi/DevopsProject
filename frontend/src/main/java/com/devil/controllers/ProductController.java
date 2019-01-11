@@ -139,6 +139,6 @@ public class ProductController {
 			model.addAttribute("searchCondition",searchCondition);
 		List<Product> products=productDao.getAllProducts();
 		model.addAttribute("products",products);
-		return "productslist";
+		return "productlist";
 	}
 }
