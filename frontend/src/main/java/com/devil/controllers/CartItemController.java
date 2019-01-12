@@ -128,6 +128,16 @@ public class CartItemController {
 		model.addAttribute("customerOrder",customerOrder);
 		return "orderdetails";
 	}
+	@RequestMapping("/all/thankyou")
+    public String thankyou(){
+    	
+    	return "thankyou";
+    }
+	@RequestMapping("/back")
+    public String back(){
+    	
+    	return "home";
+    }
 	
 
 }

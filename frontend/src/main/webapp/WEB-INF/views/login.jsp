@@ -25,7 +25,7 @@ Enter password : <input type="password" name="j_password" style="    width: 250p
     height: 39px;
     background-color: ghostwhite;">
 <input type="submit" value="Login" style="width: 100px;
-    height: 42px;
+    height: 1%;
     ">
 </pre>
 </form>

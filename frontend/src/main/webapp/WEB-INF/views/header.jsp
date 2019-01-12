@@ -46,6 +46,9 @@
 					<security:authorize access="hasRole('ROLE_ADMIN')">
 						<li><a href="<c:url value='/admin/getproductform'></c:url>">Add
 								Product</a></li>
+								<li><a href="<c:url value='/admin/getcategoryform'></c:url>">Add
+								Category</a></li>
+								
 					</security:authorize>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown">Select By Cateogory <span class="caret"></span></a>

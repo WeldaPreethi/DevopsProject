@@ -11,6 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<div class="container-wrapper">
 		<div class="container">
 
@@ -24,7 +25,9 @@
 						class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-3 col-md-offset-3">
 
 						<div>
-							<h1 align="center">Invoice</h1>
+							<h1 style="color: #3cb6e0;
+    text-shadow: 4px -5px 4px #691dd0;
+    font-size: 61px;" align="center">Invoice</h1>
 						</div>
 						ORDER ID: ${customerOrder.orderId }
 
@@ -108,12 +111,17 @@
 									</tr>
 
 								</tbody>
+								
 							</table>
+							
 						</div>
+						<CENTER> <a href="<c:url value='/all/thankyou'></c:url>">><button type="button" class="btn btn-primary">OK</button></a> </CENTER>
 					</div>
 				</div>
+				
 			</div>
 		</div>
 	</div>
+	
 </body>
 </html>
