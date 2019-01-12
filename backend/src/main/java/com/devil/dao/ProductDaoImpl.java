@@ -72,4 +72,11 @@ public class ProductDaoImpl implements ProductDao {
 		return categories;
 	}
 
+	@Override
+	public void add(Category category) {
+		// TODO Auto-generated method stubSession session = sessionFactory.getCurrentSession();
+		Session session = sessionFactory.getCurrentSession();
+		session.save(category);
+	}
+
 }

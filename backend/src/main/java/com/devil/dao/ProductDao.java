@@ -7,6 +7,7 @@ import com.devil.models.Product;
 
 public interface ProductDao {
 	void addProduct(Product product);
+	void add(Category category);
 	Product getProduct(int id);
 	void deleteProduct(int id);
 	void update(Product product);
